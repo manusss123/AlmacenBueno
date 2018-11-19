@@ -43,6 +43,12 @@ and open the template in the editor.
 
             });
         });
+        
+          $('#botonTienda').click(function () {
+            $('#principal').load("Tienda.php", {
+
+            });
+        });
 
 
     </script>
