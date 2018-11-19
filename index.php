@@ -13,15 +13,15 @@ and open the template in the editor.
         <link href="css/miCss.css" rel="stylesheet" type="text/css"/>
     </head>
     <body style="background-color:#E7ECF1">
-        <div id="principal" class="container"style="background-color:#5784B1">
+        <div id="principal" class="container">
 
-            <div id="titulo" class="text-center">
+            <div id="titulo" class="text-center" style="background-color:#5784B1">
                 <p><h1>ALMACEN UFV</h1></p>
             </div>
-            <div id="contenedor" class="text-center" >
-                <div style="">
-                    <p id="botonAlmacen" class="btn btn-light align-content-center " >ADMINISTRADOR</p>
-                    <p id="botonTienda" class="btn btn-light align-content-center " >TIENDA</p>
+            <div id="contenedor" class="text-center" style="margin-top:0.75%" style="background-color:#5784B1; size: 40%">
+                <div style="background-color:#5784B1">
+                    <p id="botonAlmacen" class="btn btn-light align-content-center  "style="margin-top:1%" >ADMINISTRADOR</p>
+                    <p id="botonTienda" class="btn btn-light align-content-center "style="margin-top:1%" >TIENDA</p>
 
                 </div>
 
