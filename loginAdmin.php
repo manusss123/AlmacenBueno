@@ -1,57 +1,38 @@
 <?php
-
-session_start();
+session_start();  //inicia la sesión del navegador en el servidor PHP
+                  //o la continúa si ya estuviera iniciada
 include ('misFunciones.php');
-
-function limpiaPalabra($palabra) {
+function limpiaPalabra($palabra){
+    //filtro muy básico para evitar la inyeccion SQL
     $palabra = trim($palabra, "'");
     $palabra = trim($palabra, " ");
-    $palabra = trim($palabra, "_");
+    $palabra = trim($palabra, "-");
+    $palabra = trim($palabra, "`");
     $palabra = trim($palabra, '"');
     return $palabra;
 }
-
 $mysqli = conectaBBDD();
+ $cajaNombre = limpiaPalabra($_POST['cajaNombre']);
+ 
+ $cajaPassword = limpiaPalabra($_POST['cajaPassword']);
+ $resultadoQuery = $mysqli -> query("SELECT * FROM adminAlmacen WHERE DNI='$cajaNombre' and contraseña='$cajaPassword' ");
+ $numUsuarios = $resultadoQuery -> num_rows;
+ if ($numUsuarios > 0){
+     $r = $resultadoQuery -> fetch_array();
+//   if (password_verify($cajaPassword, $r['userPass'])){
+//        //en la variable de sesión "nombreUsuario" guardo el nombre de usuario
+//        $_SESSION['nombreUsuario'] = $cajaNombre;
+//        //en la variable de sesión idUsuario guardo el id de usuario leido de la BBDD
+//        $_SESSION['idUsuario'] = $r['idUsuario'];
+        //muestro la pantalla de la aplicación
+        require 'paginaAlmacen.php';
+   }
+    else {
+        //muestro una pantalla de error porque la contraseña está mal
+        require 'loginAlmacenAdmin.php';
+              echo ('<div class="alert alert-danger" role="alert"> CONTRASEÑA INCORRECTA  </div>');
 
-$cajaNombre = $_POST['cajaNombre'];
 
-$cajaPassword = $_POST['cajaPassword'];
-
-$elHash = '$2y$10$GyX2YE234sMxc5qT8ZwIIOHdEaBm7xzM.EIL.O44VP202Hbb4wDCa';
-//filtro basico para evitar inyeccion SQL
-//echo 'Has escrito el usuario: '.$cajaNombre.' y la contraseña: '.$cajaPassword; 
-
-$password_encriptada = password_hash($cajaPassword, PASSWORD_BCRYPT);
-
-if (password_verify($cajaPassword, $elHash)) {
-    
-} else {
-      echo ('<div class="alert alert-danger" role="alert"> CONTRASEÑA INCORRECTA  </div>');
-}
-$resultadoQuery = $mysqli->query("SELECT * FROM adminAlmacen WHERE dni='$cajaNombre' AND password='$cajaPassword'");
-
-$numnUsuariosd = $resultadoQuery->num_rows;
-
-//for ( $i = 0; $i < $numPreguntas; $i++){/////////////
-//    $r = $resultadoQuery -> fetch_array();
-//    ech o $r['nombreUsuario'] .'<br/>';
-//}
-//
-if ($numnUsuariosd > 0) {
-    //muesta applicacion
-    $r = $resultadoQuery -> fetch_array();
-    $_SESSION['nombreUsuario']= $cajaNombre;
-    $_SESSION['id_usuario']= $r['id_usuario'];
-    
-    require 'aplicacion.php';
-} else {
-    //muesta error
-    require 'ventanaAdmin.php';
-}
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    }
+ 
+  
