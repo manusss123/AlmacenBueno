@@ -39,7 +39,7 @@ and open the template in the editor.
     <script>
 
         $('#botonAlmacen').click(function () {
-            $('#contenedor').load("loginAlmacenAdmin.php", {
+            $('#principal').load("loginAlmacenAdmin.php", {
 
             });
         });
