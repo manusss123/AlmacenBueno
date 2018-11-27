@@ -13,7 +13,7 @@ function limpiaPalabra($palabra){
 }
 $tema = "fotografia";
 $mysqli = conectaBBDD();
- $cajaNombre = limpiaPalabra($_POST['cajaNombre']);
+$cajaNombre = limpiaPalabra($_POST['cajaNombre']);
  
  $cajaPassword = limpiaPalabra($_POST['cajaPassword']);
  $resultadoQuery = $mysqli -> query("SELECT * FROM adminAlmacen WHERE DNI='$cajaNombre' and contraseña='$cajaPassword' ");
