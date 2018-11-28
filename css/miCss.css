@@ -2,4 +2,13 @@
 {
     opacity:0.6 !important;
 }
+.cuadroArticulo{
+    cursor:pointer;
+    margin:3%; 
+    width: 200px; 
+    height: 200px;
+    float: left
+    
+    
+}
 

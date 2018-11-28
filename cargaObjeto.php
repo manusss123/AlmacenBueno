@@ -5,9 +5,9 @@ include ('misFunciones.php');
 $mysqli = conectaBBDD();
 
 
-    $id = $_POST['id'];
- 
-    $resultadoQueryyy = $mysqli->query("SELECT * FROM articulosBuena WHERE Id = '$id'  ");
+$id = $_POST['id'];
+
+$resultadoQueryyy = $mysqli->query("SELECT * FROM articulosBuena WHERE Id = '$id'  ");
 
 $numPreguntas = $resultadoQueryyy->num_rows;
 
@@ -25,18 +25,27 @@ for ($i = 0; $i < $numPreguntas; $i++) {
 ?>
 <html>
     <div id="contenido">
+        <div  class="border border-primary"style="height: 400px; width: 400px">
+            <img id="imagen" style="width: 395px;height: 350px"> 
        
-        
-        
+
+        </div>
+        <div id="texto"></div>
+
     </div>
-    
-    
-    
-    
-   <script>
-               var listaArticulo = <?php echo json_encode($listaPreguntas); ?>;
-               $('#contenido').text(listaArticulo[0][0]);
-   </script>
+
+
+
+
+
+
+
+    <script>
+        var listaArticulo = <?php echo json_encode($listaPreguntas); ?>;
+        $('#texto').text(listaArticulo[0][0]);
+        $('#imagen').attr("src",'imagenArticulos/'+listaArticulo[0][1]+'.png');
+       console.log('imagenArticulos/'+listaArticulo[0][1]+'.png');
+    </script>
 </html>
 
 

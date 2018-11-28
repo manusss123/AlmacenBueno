@@ -26,6 +26,9 @@
                         <li class="nav-item active">
                             <a id="usuarios" class="nav-link active" href="#">Usuarios</a>
                         </li>
+                          <li class="nav-item active">
+                              <a id="Nuevo Articulo " class="nav-link active" onclick="añade()">Usuarios</a>
+                        </li>
                     </ul>
                     <div class="form-inline my-2 my-lg-0 nav-item active">
                         <input id="cajaBusca"oninput="busca()" class="form-control  " type="search" placeholder="Search" aria-label="Search" >
@@ -59,6 +62,9 @@
            cajabusqueda: _cajaBusqueda,
            condicion: _condicion
        });
+       
+   }
+   function añade(){
        
    }
     </script>

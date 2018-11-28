@@ -58,7 +58,7 @@ for ($i = 0; $i < $numPreguntas; $i++) {
                 console.log(listaPreguntas[$i][1]);
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
-                    $("#elementos").append(' <div class="border border-secondary rounded"style="margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + listaPreguntas[$i][5] + ')" ><img src="imagenesArticulos/' + listaPreguntas[$i][1] + '.png" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + listaPreguntas[$i][5] + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '.png" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
                 }
 
             }
