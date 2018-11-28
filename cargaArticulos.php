@@ -32,16 +32,18 @@ for ($i = 0; $i < $numPreguntas; $i++) {
 //print_r($listaPreguntas);
 ?>
 <html>
-    <div id="elementos">
 
-    </div>
-    
-    <div style="margin-left: 45%; margin-top: 3%" class="align-content-end">
-            <a id="flecha" class="btn btn-primary" onclick="alante()" >|<br>v </a>
+    <div id="contenedor">
+        <div id="elementos">
+
+        </div>
+
+        <div style="margin-left: 45%; margin-top: 3%" class="align-content-end">
+            <a id="flecha" class="btn btn-primary" onclick="alante()" style="float: left" >|<br>v </a>
 
 
         </div>
-    
+    </div>
 
     <script>
 
@@ -56,20 +58,28 @@ for ($i = 0; $i < $numPreguntas; $i++) {
                 console.log(listaPreguntas[$i][1]);
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
-                    $("#elementos").append(' <div class="border border-secondary rounded"style="margin:3%; width: 200px; height: 200px;float: left" ><img src="imagenesArticulos/' + listaPreguntas[$i][1] + '.png" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    $("#elementos").append(' <div class="border border-secondary rounded"style="margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + listaPreguntas[$i][5] + ')" ><img src="imagenesArticulos/' + listaPreguntas[$i][1] + '.png" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
                 }
+
             }
 
+
             //cuando no hay mas articulos que se oculte la flecha de mostrar mas
-//            if (aux >= listaPreguntas.length) {
-//                document.getElementById('flecha').style.display = 'none';
-//
-//            }
+
         }
+
         function alante() {
             aux = aux + 8;
             muestra();
         }
+        function muestraObjeto(_id) {
+            $('#cajaElementos').load('cargaObjeto.php', {
+                id: _id
+
+            });
+
+        }
+
 //       
 //
 //

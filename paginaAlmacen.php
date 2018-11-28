@@ -13,9 +13,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="active">
                             <a id="inventario"class="nav-link" >Iventario</a>
                         </li>
                         <li class="nav-item active">
@@ -27,8 +27,8 @@
                             <a id="usuarios" class="nav-link active" href="#">Usuarios</a>
                         </li>
                     </ul>
-                    <div class="form-inline my-2 my-lg-0">
-                        <input id="cajaBusca"oninput="busca()" class="form-control " type="search" placeholder="Search" aria-label="Search" >
+                    <div class="form-inline my-2 my-lg-0 nav-item active">
+                        <input id="cajaBusca"oninput="busca()" class="form-control  " type="search" placeholder="Search" aria-label="Search" >
                       
                     </div>
                 </div>
