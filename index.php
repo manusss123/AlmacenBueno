@@ -11,6 +11,7 @@ and open the template in the editor.
         <title>ALMACEN UFV</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/miCss.css" rel="stylesheet" type="text/css"/>
+    <link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     </head>
     <body style="background-color:#E7ECF1">
         <div id="principal" class="container">
@@ -31,11 +32,16 @@ and open the template in the editor.
     </body>
 
     <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
     <script scr="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-
+    
+	
+       
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
     <script>
 
         $('#botonAlmacen').click(function () {

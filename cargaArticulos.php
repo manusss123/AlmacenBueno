@@ -58,7 +58,7 @@ for ($i = 0; $i < $numPreguntas; $i++) {
                 console.log(listaPreguntas[$i][1]);
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
-                    $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + listaPreguntas[$i][5] + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '.png" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
                 }
 
             }
@@ -72,9 +72,21 @@ for ($i = 0; $i < $numPreguntas; $i++) {
             aux = aux + 8;
             muestra();
         }
-        function muestraObjeto(_id) {
-            $('#cajaElementos').load('cargaObjeto.php', {
-                id: _id
+        function muestraObjeto(x) {
+            var _nombre = listaPreguntas[x][0];
+            var _imagen = listaPreguntas[x][1];
+            var _num_serie = listaPreguntas[x][2];
+            var _cantidad = listaPreguntas[x][3];
+            var _categoria = listaPreguntas[x][4];
+            var _id = listaPreguntas[x][5];
+            
+        $('#cajaElementos').load('cargaObjeto.php', {
+            nombre: _nombre,
+            imagen: _imagen,
+            num_serie :_num_serie,
+            cantidad: _cantidad,
+            categoria: _categoria,
+            id: _id
 
             });
 

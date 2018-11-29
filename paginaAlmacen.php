@@ -27,7 +27,7 @@
                             <a id="usuarios" class="nav-link active" href="#">Usuarios</a>
                         </li>
                           <li class="nav-item active">
-                              <a id="Nuevo Articulo " class="nav-link active" onclick="añade()">Usuarios</a>
+                              <a id="Nuevo Articulo " class="nav-link active"style="cursor:pointer" onclick="añade()">Añade Articulos</a>
                         </li>
                     </ul>
                     <div class="form-inline my-2 my-lg-0 nav-item active">
@@ -65,8 +65,8 @@
        
    }
    function añade(){
-       
-   }
+        $('#cajaElementos').load('añadeArticulo.php');
+    }
     </script>
 
 </html>
