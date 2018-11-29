@@ -24,6 +24,7 @@ $id = $_POST['id']
                 Categoria: <input class="form-control" value="<?php echo $categoria; ?>"><br>
                 <label for="input-24">Elije tu nueva foto</label>
                 <input id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true">               
+                <a class="btn btn-file" onclick="actualiza()">Guardar</a>
             </div>
 
 
@@ -39,7 +40,9 @@ $id = $_POST['id']
 
     <script>
         var listaArticulo = <?php echo json_encode($listaPreguntas); ?>;
-        
+        function actualiza(){
+            
+        }
     </script>
     </>
 </html>

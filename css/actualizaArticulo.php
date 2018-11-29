@@ -1,8 +1,19 @@
 <?php
+//inicia la sesión del navegador en el servidor PHP
+//o la continúa si ya estuviera iniciada
+include ('misFunciones.php');
+;
+$condicion = $_POST['condicion'];
+$mysqli = conectaBBDD();
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+$resultadoQueryy = $mysqli->query("SELECT * FROM articulosBuena  ");
+
+$numPreguntas = $resultadoQueryy->num_rows;
+
+$listaPreguntas = array();
+
+?>
+
+
 
