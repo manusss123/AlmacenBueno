@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Moviles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="esquemaMoviles.xsd">
+    <Movil marca="Aplle" modelo="Iphone X" fechaSalida="2017">
+        <Procesador>Apple A11</Procesador>
+        <Memoria_Ram>3 GB </Memoria_Ram>
+        <Memoria_interna>64/256 GB</Memoria_interna>
+        <Bateria>2.716 mAh</Bateria>
+        <Pantalla>5,8" AMOLED)</Pantalla>
+        <Resolucino_Pantalla>2436x1125 pixeles</Resolucino_Pantalla>
+        <Camara>7 MP</Camara>
+        <Precio>1150-1350 euros</Precio>
+    </Movil>
+       <Movil marca="Samsung" modelo="Galaxy S9" fechaSalida="2018">
+        <Procesador>Samsung Exynos 9810</Procesador>
+        <Memoria_Ram>4 GB </Memoria_Ram>
+        <Memoria_interna> 64/128/256 GB</Memoria_interna>
+        <Bateria>3.000 mAh</Bateria>
+        <Pantalla>5,8" Super AMOLED)</Pantalla>
+        <Resolucino_Pantalla>2690x1440 pixeles</Resolucino_Pantalla>
+        <Camara>12 MP</Camara>
+        <Precio>846 euros</Precio>
+
+    </Movil>
+        <Movil marca="Huawei" modelo="P20" fechaSalida="2018">
+        <Procesador>HiSilicon Kirin 970</Procesador>
+        <Memoria_Ram>4 GB </Memoria_Ram>
+        <Memoria_interna>128 GB</Memoria_interna>
+        <Bateria>3.400 mAh</Bateria>
+        <Pantalla>5,8" IPS)</Pantalla>
+        <Resolucino_Pantalla> 2244x1080 píxeles</Resolucino_Pantalla>
+        <Camara>24 MP</Camara>
+        <Precio>550 euro</Precio>
+
+    </Movil>
+</Moviles>

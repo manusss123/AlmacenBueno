@@ -1,8 +1,15 @@
 <?php
+include ('misFunciones.php');
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+$cajaCantidad = $_POST['cajaCantidad'];
+$cajaNumSerie = $_POST['cajaNumSerie'];
+$cajaCategoria = $_POST['cajaCategoria'];
+
+
+$mysqli = conectaBBDD();
+
+ $resultadoQuery = $mysqli -> query("INSERT INTO articulosBuena (Num_Serie, Cantidad, Categoria) VALUES ('$num_serie','$cajaCantidad','$cajaCategoria'");
+ $numUsuarios = $resultadoQuery -> num_rows;
+ 
+?>

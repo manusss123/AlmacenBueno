@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0">
+    <xsd:element name="Moviles">
+        <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+                <xsd:element name="Movil" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Procesador" type="xsd:string" />
+                            <xsd:element name="Memoria_Ram" type="xsd:string" />
+                            <xsd:element name="Memoria_interna" type="xsd:string" />
+                            <xsd:element name="Bateria" type="xsd:string" />
+                            <xsd:element name="Pantalla" type="xsd:string" />
+                            <xsd:element name="Resolucino_Pantalla" type="xsd:string" />
+                            <xsd:element name="Camara" type="xsd:string" />
+                            <xsd:element name="Precio" type="xsd:string" />
+                            
+
+                        </xsd:sequence>
+                        <xsd:attribute name="marca" type="xsd:string"/>
+                        <xsd:attribute name="modelo" type="xsd:string"/>
+                        <xsd:attribute name="fechaSalida" type="xsd:string"/>
+
+
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

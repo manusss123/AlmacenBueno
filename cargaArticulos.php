@@ -34,6 +34,10 @@ for ($i = 0; $i < $numPreguntas; $i++) {
 <html>
 
     <div id="contenedor">
+        <div style="margin-left: 90%">
+            <a class="btn "onclick="cuadradotrue()"><img src="imagenUsuarios/cuadrados.png"style="height: 20px; width: 20px;"></a>
+            <a class="btn "onclick="cuadradofalse()"><img src="imagenUsuarios/rayashorizontales.png"style="height: 20px; width: 20px;"></a>
+        </div>
         <div id="elementos">
 
         </div>
@@ -46,27 +50,51 @@ for ($i = 0; $i < $numPreguntas; $i++) {
     </div>
 
     <script>
-
+        var cuadrados = 0;
         var aux = 0;
         var numerocuadrados = 22;
         var listaPreguntas = <?php echo json_encode($listaPreguntas); ?>;
         var contador = 0;
         console.log(listaPreguntas);
-
-        function muestra() {
+        
+    function muestra() {
+            var cadena = "";
             for ($i = aux; $i < aux + 8; $i++) {
                 console.log(listaPreguntas[$i][1]);
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
-                    $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    if (cuadrados == 0) {
+                        cadena = cadena + ' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ';
+                        //$("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    }
+                    if (cuadrados == 1) {
+                        cadena = cadena + ' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%;">' + listaPreguntas[$i][0] + '</div> ';
+                        //$("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%;">' + listaPreguntas[$i][0] + '</div> ');
+                    }
+
                 }
 
+
+                //cuando no hay mas articulos que se oculte la flecha de mostrar mas
+                $("#elementos").html(cadena);
             }
 
-
-            //cuando no hay mas articulos que se oculte la flecha de mostrar mas
-
         }
+        function cuadradotrue() {
+            cuadrados = 0;
+            aux = 0;
+
+            $('#elementos').html('');
+            muestra();
+        }
+        function cuadradofalse() {
+            cuadrados = 1;
+            aux = 0;
+            $('#elementos').html('');
+
+            muestra();
+        }
+
 
         function alante() {
             aux = aux + 8;
@@ -79,14 +107,14 @@ for ($i = 0; $i < $numPreguntas; $i++) {
             var _cantidad = listaPreguntas[x][3];
             var _categoria = listaPreguntas[x][4];
             var _id = listaPreguntas[x][5];
-            
-        $('#cajaElementos').load('cargaObjeto.php', {
-            nombre: _nombre,
-            imagen: _imagen,
-            num_serie :_num_serie,
-            cantidad: _cantidad,
-            categoria: _categoria,
-            id: _id
+
+            $('#cajaElementos').load('cargaObjeto.php', {
+                nombre: _nombre,
+                imagen: _imagen,
+                num_serie: _num_serie,
+                cantidad: _cantidad,
+                categoria: _categoria,
+                id: _id
 
             });
 

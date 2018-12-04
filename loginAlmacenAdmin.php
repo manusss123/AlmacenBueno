@@ -1,3 +1,4 @@
+
 <div id="principal" class="container">
     <div id="titulo" class="text-center" style="background-color:#5784B1">
         <p><h1>ALMACEN UFV</h1></p>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Applications/XAMPP/xamppfiles/htdocs/Almacen/ProyectoPrimeraEVacceso/../../../../../../Users/pablo/Desktop/esquemaMoviles.xsd" uri="xml-resources/jaxb/moviles/esquemaMoviles.xsd"/>
+</catalog>
