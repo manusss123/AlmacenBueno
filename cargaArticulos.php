@@ -2,13 +2,17 @@
 //inicia la sesión del navegador en el servidor PHP
 //o la continúa si ya estuviera iniciada
 include ('misFunciones.php');
-;
+
 $condicion = $_POST['condicion'];
 $mysqli = conectaBBDD();
 
 if ($condicion == 1) {
     $cajaBusqueda = $_POST['cajabusqueda'];
     $resultadoQueryy = $mysqli->query("SELECT * FROM articulosBuena WHERE Nombre LIKE '$cajaBusqueda%' ");
+}
+else if($condicion == 2) {
+    $categoria = $_POST['categoria'];
+    $resultadoQueryy = $mysqli->query("SELECT * FROM articulosBuena WHERE Categoria LIKE '$categoria' ");
 } else {
     $resultadoQueryy = $mysqli->query("SELECT * FROM articulosBuena  ");
 }
@@ -34,20 +38,17 @@ for ($i = 0; $i < $numPreguntas; $i++) {
 <html>
 
     <div id="contenedor">
-        <div style="margin-left: 90%">
-        <a class="btn "onclick="cuadradotrue()"><img src="imagenUsuarios/cuadrados.png"style="height: 20px; width: 20px;"></a>
-        <a class="btn "onclick="cuadradofalse()"><img src="imagenUsuarios/rayashorizontales.png"style="height: 20px; width: 20px;  "></a>
-        </div>
+     
         <div id="elementos">
-          
-        </div>
-
-        <div style="margin-left: 45%; margin-top: 3%" class="align-content-end">
-            <a id="flecha" class="btn btn-primary" onclick="alante()" style="float: left" >|<br>v </a>
-
 
         </div>
+
+       
     </div>
+     
+
+
+      
 
     <script>
         var cuadrados = true;
@@ -56,17 +57,19 @@ for ($i = 0; $i < $numPreguntas; $i++) {
         var listaPreguntas = <?php echo json_encode($listaPreguntas); ?>;
         var contador = 0;
         console.log(listaPreguntas);
-        function cuadradotrue(){
+        function cuadradotrue() {
             cuadrados = true;
-            aux=0;
+            aux = 0;
+            contador = 0;
 
-           $('#elementos').html('');
+            $('#elementos').html('');
             muestra();
         }
-        function cuadradofalse(){
+        function cuadradofalse() {
             cuadrados = false;
-            aux=0;
-           $('#elementos').html('');
+            aux = 0;
+            contador = 0;
+            $('#elementos').html('');
 
             muestra();
         }
@@ -76,19 +79,15 @@ for ($i = 0; $i < $numPreguntas; $i++) {
                 console.log(listaPreguntas[$i][1]);
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
-                 if (cuadrados == true){
-                    $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
-                }
-                if (cuadrados == false){
-                     $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%; margin-right:20%;">' + listaPreguntas[$i][0]+ '                <a style:"margin-left:20px" >uds: '+listaPreguntas[$i][3]+'</a> </div> ');
-                }
+                    if (cuadrados == true) {
+                        $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
+                    }
+                    if (cuadrados == false) {
+                        $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%; margin-right:20%;">' + listaPreguntas[$i][0] + '<a style:"margin-left:20px" >uds: ' + listaPreguntas[$i][3] + '</a> </div> ');
+                    }
 
+                }
             }
-
-
-            //cuando no hay mas articulos que se oculte la flecha de mostrar mas
-
-        }
         }
         function alante() {
             aux = aux + 8;
@@ -101,27 +100,17 @@ for ($i = 0; $i < $numPreguntas; $i++) {
             var _cantidad = listaPreguntas[x][3];
             var _categoria = listaPreguntas[x][4];
             var _id = listaPreguntas[x][5];
-            
-        $('#cajaElementos').load('cargaObjeto.php', {
-            nombre: _nombre,
-            imagen: _imagen,
-            num_serie :_num_serie,
-            cantidad: _cantidad,
-            categoria: _categoria,
-            id: _id
 
+            $('#cajaElementos').load('cargaObjeto.php', {
+                nombre: _nombre,
+                imagen: _imagen,
+                num_serie: _num_serie,
+                cantidad: _cantidad,
+                categoria: _categoria,
+                id: _id
             });
-
         }
-
-//       
-//
-//
-//
-//
-//            
-//
-//
+     
         muestra();
     </script>
 
