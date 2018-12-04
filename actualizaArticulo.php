@@ -5,11 +5,12 @@ include ('misFunciones.php');
 $cajaCantidad = $_POST['cajaCantidad'];
 $cajaNumSerie = $_POST['cajaNumSerie'];
 $cajaCategoria = $_POST['cajaCategoria'];
+$id = $_POST['id'];
 
 
 $mysqli = conectaBBDD();
 
- $resultadoQuery = $mysqli -> query("INSERT INTO articulosBuena (Num_Serie, Cantidad, Categoria) VALUES ('$num_serie','$cajaCantidad','$cajaCategoria'");
- $numUsuarios = $resultadoQuery -> num_rows;
- 
+ $resultadoQuery = $mysqli -> query("Update articulosBuena Set Cantidad='$cajaCantidad', Num_Serie='$cajaNumSerie',Categoria='$cajaCategoria' Where id='$id'");
+
+ require 'paginaAlmacen.php';
 ?>

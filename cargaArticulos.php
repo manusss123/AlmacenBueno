@@ -36,7 +36,7 @@ for ($i = 0; $i < $numPreguntas; $i++) {
     <div id="contenedor">
         <div style="margin-left: 90%">
         <a class="btn "onclick="cuadradotrue()"><img src="imagenUsuarios/cuadrados.png"style="height: 20px; width: 20px;"></a>
-        <a class="btn "onclick="cuadradofalse()"><img src="imagenUsuarios/rayashorizontales.png"style="height: 20px; width: 20px;"></a>
+        <a class="btn "onclick="cuadradofalse()"><img src="imagenUsuarios/rayashorizontales.png"style="height: 20px; width: 20px;  "></a>
         </div>
         <div id="elementos">
           
@@ -77,11 +77,10 @@ for ($i = 0; $i < $numPreguntas; $i++) {
                 contador = contador + 1;
                 if (contador <= listaPreguntas.length) {
                  if (cuadrados == true){
-                     cadena = cadena + ' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ';
                     $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:3%; width: 200px; height: 200px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:80%;;height:80%;">' + listaPreguntas[$i][0] + '</div> ');
                 }
                 if (cuadrados == false){
-                     $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%;">' + listaPreguntas[$i][0] + '</div> ');
+                     $("#elementos").append(' <div class="border border-secondary rounded"style="cursor:pointer;margin:2%; width: 90%; height: 50px;float: left" onclick="muestraObjeto(' + $i + ')" ><img src="imagenArticulos/' + listaPreguntas[$i][1] + '" style="width:7%;height:90%; margin-right:20%;">' + listaPreguntas[$i][0]+ '                <a style:"margin-left:20px" >uds: '+listaPreguntas[$i][3]+'</a> </div> ');
                 }
 
             }
